@@ -1,4 +1,8 @@
 import pandas as pd
+
+# Polars é uma biblioteca que trabalha com Multthread. Por isso, recomenda-se p/ trabalhos em larga
+# escala. A tendência é que seja bem mais rápido que o pandas. O processamento de dados é feito em paralelo.
+# http:/polars.rs
 import polars as pl
 from datetime import datetime # biblioteca q trabalha  c/ tempo.
 # https://portaldatransparencia.gov.br/download-de-dados/novo-bolsa-familia
@@ -16,9 +20,9 @@ try:
     df_janeiro = pl.read_csv(ENDERECO_DADOS + '202601_NovoBolsaFamilia.csv', separator=';', encoding='iso-8859-1')
 
 
-
-
     print(df_janeiro.head())
+    print(df_janeiro.columns) # Columns - quantidade de colunas
+    print(df_janeiro.shape) # shape é para saber quantidade de linhas e colunas (19447542, 9).
 
     hora_final = datetime.now()
 
